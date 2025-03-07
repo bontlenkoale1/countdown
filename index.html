@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countdown⌛</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playwrite+IT+Moderna:wght@100..400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Playwrite+IT+Moderna:wght@100..400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Pixelify+Sans:wght@400..700&family=Playwrite+IT+Moderna:wght@100..400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <ul class="sidebar-content">
+          <h1>
+            Countdown<img
+              src="images/hourglass.png"
+              alt=""
+              id="hourglass-icon"
+            />
+          </h1>
+          <li>
+            <a href="index.html" id="home-btn"
+              ><img src="images/download.png" alt="" id="home" />Home</a
+            >
+            <ul class="dropdown">
+              <li><a href="theme.html">• Change Theme</a></li>
+              <li><a href="image.html">• Change Image</a></li>
+              <li><a href="createCountdown.html">• Create Countdown</a></li>
+            </ul>
+          </li>
+          <li><a href="History.html">Check History</a></li>
+          <li><a href="Login.html">Login</a></li>
+        </ul>
+      </div>
+      <div class="countdown-container">
+        <div class="countdown-header-left">
+          <img src="images/download (2).png" alt="" id="ballons" />
+        </div>
+      </div>
+      <div class="countdown-body-container">
+        <div class="countdown-header-right">
+          <h2>
+            Count<span class="hightlight">down</span
+            ><img src="images/hourglass (1).png" alt="" id="hour-glass-icon" />
+          </h2>
+          <h3>
+            Countdown to your <span class="highlights"> special day</span>
+          </h3>
+        </div>
+      </div>
+      <div class="countdown-content-container">
+      <div class="countdown">
+        <div class="time-box">
+          <span id="months">00</span>
+          <div class="label">Months</div>
+        </div>
+        <div class="time-box">
+          <span id="days">00</span>
+          <div class="label">Days</div>
+        </div>
+        <div class="time-box">
+          <span id="hours">00</span>
+          <div class="label">Hours</div>
+        </div>
+        <div class="time-box">
+          <span id="minutes">00</span>
+          <div class="label">Minutes</div>
+        </div>
+        <div class="time-box">
+          <span id="seconds">00</span>
+          <div class="label">Seconds</div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
