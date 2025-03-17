@@ -1,11 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playwrite+IT+Moderna:wght@100..400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Playwrite+IT+Moderna:wght@100..400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Pixelify+Sans:wght@400..700&family=Playwrite+IT+Moderna:wght@100..400&display=swap"
+      rel="stylesheet"
+    />
     <title>Countdown⌛</title>
-</head>
-<body>
-    create new countddown
-</body>
+    <link rel="stylesheet" href="createStyle.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <ul class="sidebar-content">
+          <h1>
+            Create Countdown<img
+              src="images/hourglass.png"
+              alt=""
+              id="hourglass-icon"
+            />
+          </h1>
+          <li>
+            <a href="index.html">Home</a></li>
+          <li><a href="History.html">Check History</a></li>
+          <li><a href="Login.html">Login</a></li>
+        </ul>
+      </div>
+      <div class="main-page-content-container">
+        <h2>
+          Creating Incredible<span class="highlight"> Moments With You</span>
+        </h2>
+        <p>
+          Set a countdown for your
+          <span class="highlight">special moment</span> and make it
+          unforgettable!
+        </p>
+        <div class="form-container">
+            <form id="countdown-form">
+              <label for="event-name">What's The Occasion?</label>
+              <input
+                type="text"
+                name="event-name"
+                id="event-name"
+                placeholder=" "
+                required
+              />
+              <label for="event-date">Event Date & Time</label>
+              <input
+                type="datetime-local"
+                name="event-date"
+                id="event-date"
+                required
+              />
+              <label for="theme">Choose a Theme:</label>
+            <select id="theme" name="theme">
+              <option value="birthday">Birthday</option>
+              <option value="wedding">Wedding</option>
+              <option value="holiday">Holiday</option>
+              <option value="custom">Custom</option>
+            </select>
+  
+            <label for="background">Upload Background Image/Video:</label>
+            <input type="file" id="background" name="background" accept="image/*, video/*" />
+  
+            <div id="custom-options" class="custom-options"/>
+              <label for="custom-background">Custom Background Color:</label>
+              <input type="color" id="custom-background" name="custom-background" />
+        
+              <label for="custom-font">Custom Font Style:</label>
+              <select id="custom-font" name="custom-font">
+                <option value="Montserrat">Montserrat</option>
+                <option value="Pacifico">Pacifico</option>
+                <option value="Pixelify Sans">Pixelify Sans</option>
+              </select>
+        
+              <label for="custom-image">Upload Custom Image:</label>
+              <input type="file" id="custom-image" name="custom-image" accept="image/*" />
+        
+              <label for="custom-sound">Upload Custom Sound:</label>
+              <input type="file" id="custom-sound" name="custom-sound" accept="audio/*" />
+            </div>
+            <label for="custom-message">Custom Message After Countdown:</label>
+            <input type="text"  name="custom-message"  id="custom-message"  placeholder="Enter your custom message"/>
+            <button type="submit">Create Countdown</button>
+            <button type="submit">Delete</button>
+            </form>
+            </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>

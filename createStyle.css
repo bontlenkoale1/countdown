@@ -1,0 +1,343 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    display: flex;
+    font-family: "Montserrat", serif;
+    justify-content: flex-start;
+  }
+  .container {
+    display: flex;
+    justify-content: flex-start;
+    min-height: 100vh;
+    width: 100%;
+    background: #9880a1;
+  }
+  .sidebar {
+    display: flex;
+    justify-content: flex-start;
+    width: 320px;
+    background: linear-gradient(135deg, #6058a5, #9880a1, #63639b);
+    color: #fff;
+    height: 130vh;
+    padding: 40px;
+    box-shadow: 0 0 10px rgba(99, 7, 107, 0.815);
+    box-sizing: border-box;
+  }
+  
+  .sidebar-content {
+    display: block;
+    list-style-type: none;
+    padding: 10px;
+  }
+  
+  .sidebar-content li {
+    margin: 10px 0;
+    position: relative;
+    margin-bottom: -10px;
+    display: inline;
+    padding: 10px 10px;
+    top: 8px;
+  }
+  .sidebar-content h1 {
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+  
+    color: #ffffff;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar-content h1 img {
+    width: 30px;
+    height: auto;
+    animation: rotate 3s linear infinite;
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  .sidebar-content li a {
+    display: block;
+    color: #fcfcfc;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-weight: 400;
+    font-family: "Montserrat", serif;
+    font-size: 16px;
+  }
+  
+  .sidebar-content li a:hover {
+    background-color: #7979ad;
+  }
+  .sidebar-content a {
+    margin-bottom: 12px;
+  }
+  
+  .sidebar-content li img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+  #home {
+    vertical-align: middle;
+    margin-right: -2px;
+  }
+  
+  ul {
+    padding: 0;
+    margin: 0;
+    margin-left: 10px;
+  }
+  
+  .countdown-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .countdown-container {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .countdown-header-left {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-left: -30px;
+  }
+  #ballons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    margin-left: 100px;
+    width: 100%;
+    height: 100%;
+    max-width: 120%;
+    filter: drop-shadow(10px 10px 25px rgba(0, 0.5, 0.8, 0.9));
+  }
+  
+  #hourglass-icon {
+    width: 20px;
+    height: auto;
+    vertical-align: middle;
+    margin-left: 8px;
+  }
+  #hour-glass-icon {
+    display: inline-block;
+    width: 20px;
+    height: auto;
+    vertical-align: middle;
+    margin-left: 8px;
+    animation: rotateClockwise 2s linear infinite;
+  }
+  
+  .main-page-content-container {
+    display: block;
+    justify-content: center;
+    text-align: center;
+    margin: 20px 0;
+    /* margin: 10px;
+    padding: 10px 5px;*/
+  }
+  .main-page-content-container h2 {
+    color: #fff;
+    font-size: 30px;
+    font-family: "Montserrat", serif;
+    margin-bottom: 5px;
+    font-weight: 250;
+    margin-left: 180px;
+  }
+  .main-page-content-container .highlight {
+    background: linear-gradient(125deg, #03bff8, #dcb7e9, #bcbcfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "Playwrite IT Moderna", cursive;
+  }
+  .main-page-content-container p {
+    color: #fff;
+    font-size: 20px;
+    font-family: "Montserrat", serif;
+    margin-top: -10px;
+    font-weight: 250;
+    margin-left: 140px;
+    margin-bottom: 80px;
+  }
+  .form-container {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    text-align: left;
+    margin-left: -120px;
+    margin-top: 10px;
+  }
+  
+  #countdown-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    
+  }
+  
+  #countdown-form {
+    position: relative;
+    margin-bottom: 50px;
+    gap: 10px;
+  }
+  label[for="theme"] {
+      color: #fff;
+      font-family: "Montserrat", serif;
+      font-size: 16px;
+      margin-bottom: 10px; /* Space between label and dropdown */
+      display: block;
+      margin-top: 10px;
+    }
+    #theme option {
+      background: #9880a1; /* Background color for options */
+      color: #fff; /* Text color for options */
+      font-family: "Montserrat", serif; /* Font family */
+      font-size: 16px; /* Font size */
+      padding: 10px; /* Padding inside each option */
+    }
+    /* Style for the select dropdown */
+    #theme {
+      width: 100%;
+      margin-top: -10px;
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 5px;
+      background: rgba(209, 18, 18, 0);
+      color: #ffffff;
+      font-family: "Montserrat", serif;
+      font-size: 16px;
+      outline: none;
+      appearance: none; /* Remove default arrow */
+      cursor: pointer;
+     /*ransition: border-color 0.3s ease, background 0.3s ease;*//
+    }
+  #countdown-form input,
+  #countdown-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-family: "Montserrat", serif;
+    font-size: 16px;
+    outline: none;
+    
+  }
+  
+  #countdown-form textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  #countdown-form label {
+    color: rgba(255, 255, 255, 0.7);
+    font-family: "Montserrat", serif;
+    font-size: 16px;
+  
+  }
+  #countdown-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-family: "Montserrat", serif;
+    font-size: 16px;
+    outline: none;
+  }
+  
+  #countdown-form label {
+    color: rgba(255, 255, 255, 0.7);
+    font-family: "Montserrat", serif;
+    font-size: 16px;
+  }
+  .custom-options {
+      margin-top: 20px;
+    }
+    
+    .custom-options label {
+      color: #fff;
+      font-family: "Montserrat", serif;
+      font-size: 16px;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .custom-options {
+      display: none;
+    }
+    
+    .custom-options input[type="color"],
+    .custom-options select,
+    .custom-options input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-family: "Montserrat", serif;
+      font-size: 14px;
+      margin-bottom: 15px;
+      outline: none;
+    }
+    
+    .custom-options input[type="file"] {
+      cursor: pointer;
+    }
+  
+    #countdown-form button {
+      padding: 10px;
+      background: linear-gradient(125deg, #03bff8, #dcb7e9, #bcbcfa);
+      color: #fff;
+      border: none;
+      margin-top: 50px;
+      border-radius: 5px;
+      margin-bottom: -40px;
+      font-family: "Montserrat", serif;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    
+    #countdown-form button:hover {
+      background: linear-gradient(125deg, #03bff8, #bcbcfa, #dcb7e9);
+    }
+
+    /* Add this to your CSS file */
+.countdown-content-container p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    margin-top: 20px;
+    text-align: center;
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }

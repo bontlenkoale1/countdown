@@ -287,4 +287,6 @@ ul {
   font-size: 16px;
   color: rgb(255, 255, 255);
 }
- 
+.dropdown.active {
+  display: block; /* Show the dropdown when the 'active' class is added */
+}
