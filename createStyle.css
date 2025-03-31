@@ -271,41 +271,9 @@
     font-family: "Montserrat", serif;
     font-size: 16px;
   }
-  .custom-options {
-      margin-top: 20px;
-    }
-    
-    .custom-options label {
-      color: #fff;
-      font-family: "Montserrat", serif;
-      font-size: 16px;
-      margin-bottom: 10px;
-      display: block;
-    }
-    .custom-options {
-      display: none;
-    }
-    
-    .custom-options input[type="color"],
-    .custom-options select,
-    .custom-options input[type="file"] {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 5px;
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
-      font-family: "Montserrat", serif;
-      font-size: 14px;
-      margin-bottom: 15px;
-      outline: none;
-    }
-    
-    .custom-options input[type="file"] {
-      cursor: pointer;
-    }
   
-    #countdown-form button {
+  
+     button {
       padding: 10px;
       background: linear-gradient(125deg, #03bff8, #dcb7e9, #bcbcfa);
       color: #fff;
@@ -319,11 +287,9 @@
       transition: background 0.3s ease;
     }
     
-    #countdown-form button:hover {
+  button:hover {
       background: linear-gradient(125deg, #03bff8, #bcbcfa, #dcb7e9);
     }
-
-    /* Add this to your CSS file */
 .countdown-content-container p {
     font-size: 24px;
     font-weight: bold;
@@ -340,4 +306,25 @@
     to {
       opacity: 1;
     }
+  }
+
+  .hidden {
+    display: none;
+  }
+  
+  #countdown-ended-message {
+    font-size: 2rem;
+    color: #fff;
+    text-align: center;
+    margin: 20px 0;
+    padding: 15px;
+    background-color: transparent;
+    border-radius: 5px;
+    animation: blink 1.5s linear infinite;
+  }
+  
+  @keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
   }
