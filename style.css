@@ -18,7 +18,7 @@ body {
 .sidebar {
   display: flex;
   justify-content: flex-start;
-  width: 320px;
+  width: 350px;
   background: linear-gradient(135deg, #6058a5, #9880a1, #63639b);
   color: #fff;
   height: 100vh;
@@ -47,7 +47,7 @@ body {
   text-decoration: none;
   text-transform: capitalize;
   font-weight: 400;
-  font-family: "Playwrite IT Moderna", serif;
+  font-family:  "Montserrat", serif;
   font-size: 16px;
   }
 
@@ -131,7 +131,7 @@ ul {
   flex-wrap: wrap;
   margin-left: -30px;
 }
-#ballons {
+/*#ballons {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -141,7 +141,22 @@ ul {
   height: 100%;
   max-width: 120%;
   filter: drop-shadow(10px 10px 25px rgba(0, 0.5, 0.8, 0.9));
+}*/
+.uploadable-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  margin-left: 90px;
+  width: 100%;
+  height: 100%;
+ /* max-width: 120%;*/
+  filter: drop-shadow(10px 10px 25px rgba(0, 0.5, 0.8, 0.9));
+  max-width: 500px;
+  max-height: 500px;
+  cursor: pointer;
 }
+
 /*#ballons img{
   width: 90%;
   height: 150px;
@@ -290,4 +305,21 @@ ul {
 }
 .dropdown.active {
   display: block;
+}
+
+
+.countdown-header-left {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ /* overflow: hidden; /* Prevents overflow */
+}
+
+.countdown-header-left img,
+.countdown-header-left video {
+  max-width: 100%;
+  height: auto;
+ /* object-fit: cover; /* Ensures it fits within container */
 }

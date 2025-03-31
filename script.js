@@ -4,6 +4,10 @@ const form = document.getElementById("countdown-form");
 const occasionInput = document.getElementById("event-name");
 const occasionDisplay = document.querySelector(".countdown-header-right h3");
 const storedOccasion = localStorage.getItem("occasion");
+const image = document.getElementById("balloons");
+const fileInput = document.createElement("input");
+const messageContainer = document.getElementById("countdown-ended-message");
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const homeBtn = document.getElementById("home-btn");
@@ -23,18 +27,17 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("countdown-form");
-  if (form){
-    form.addEventListener("submit", function(event){
+  if (form) {
+    form.addEventListener("submit", function (event) {
       event.preventDefault();
 
       const occasionInput = document.getElementById("event-name").value;
-      if(occasionInput.trim() !== ""){
+      if (occasionInput.trim() !== "") {
         localStorage.setItem("occasion", occasionInput);
         window.location.href = "index.html";
-      };
+      }
     });
   }
   const occasionDisplay = document.querySelector(".countdown-header-right h3");
@@ -44,4 +47,40 @@ document.addEventListener("DOMContentLoaded", function(){
       occasionDisplay.innerHTML = `Countdown To Your <span class="highlights">${storedOccasion}!</span>`;
     }
   }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const image = document.getElementById("balloons");
+
+  image.addEventListener("click", function () {
+    const fileInput = document.createElement("input");
+    fileInput.type = "file";
+    fileInput.accept = "image/*";
+
+    fileInput.addEventListener("change", function (e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+
+        reader.onload = function (event) {
+          const img = new Image();
+          img.onload = function () {
+            if (this.width > 500 || this.height > 500) {
+              alert(
+                "Image is too large! Please select an image that is 300px or smaller in both width and height."
+              );
+              return;
+            }
+
+            image.src = event.target.result;
+          };
+          img.src = event.target.result;
+        };
+
+        reader.readAsDataURL(file);
+      }
+    });
+
+    fileInput.click();
+  });
 });
