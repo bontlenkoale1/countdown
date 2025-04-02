@@ -202,18 +202,17 @@
       color: #fff;
       font-family: "Montserrat", serif;
       font-size: 16px;
-      margin-bottom: 10px; /* Space between label and dropdown */
+      margin-bottom: 10px; 
       display: block;
       margin-top: 10px;
     }
     #theme option {
-      background: #9880a1; /* Background color for options */
-      color: #fff; /* Text color for options */
-      font-family: "Montserrat", serif; /* Font family */
-      font-size: 16px; /* Font size */
-      padding: 10px; /* Padding inside each option */
+      background: #9880a1;
+      color: #fff; 
+      font-family: "Montserrat", serif; 
+      font-size: 16px;
+      padding: 10px;
     }
-    /* Style for the select dropdown */
     #theme {
       width: 100%;
       margin-top: -10px;
@@ -225,9 +224,8 @@
       font-family: "Montserrat", serif;
       font-size: 16px;
       outline: none;
-      appearance: none; /* Remove default arrow */
+      appearance: none; 
       cursor: pointer;
-     /*ransition: border-color 0.3s ease, background 0.3s ease;*//
     }
   #countdown-form input,
   #countdown-form textarea {
@@ -308,23 +306,4 @@
     }
   }
 
-  .hidden {
-    display: none;
-  }
-  
-  #countdown-ended-message {
-    font-size: 2rem;
-    color: #fff;
-    text-align: center;
-    margin: 20px 0;
-    padding: 15px;
-    background-color: transparent;
-    border-radius: 5px;
-    animation: blink 1.5s linear infinite;
-  }
-  
-  @keyframes blink {
-    0% { opacity: 1; }
-    50% { opacity: 0.3; }
-    100% { opacity: 1; }
-  }
+ 

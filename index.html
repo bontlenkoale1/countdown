@@ -56,7 +56,13 @@
       </div>
       <div class="countdown-container">
         <div class="countdown-header-left">
-          <img src="images/download (2).png" alt="" id="balloons" class="uploadable-image" style="max-width: 500px; max-height: 500px; cursor: pointer;" />
+          <img
+            src="images/download (2).png"
+            alt=""
+            id="balloons"
+            class="uploadable-image"
+            style="max-width: 500px; max-height: 500px; cursor: pointer"
+          />
         </div>
       </div>
       <div class="countdown-body-container">
@@ -71,34 +77,42 @@
         </div>
       </div>
       <div class="countdown-content-container">
-      <div class="countdown">
-        <div class="time-box">
-          <span id="year">00</span>
-          <div class="label">Year</div>
-        </div>
-        <div class="time-box">
-          <span id="months">00</span>
-          <div class="label">Months</div>
-        </div>
-        <div class="time-box">
-          <span id="days">00</span>
-          <div class="label">Days</div>
-        </div>
-        <div class="time-box">
-          <span id="hours">00</span>
-          <div class="label">Hours</div>
-        </div>
-        <div class="time-box">
-          <span id="minutes">00</span>
-          <div class="label">Minutes</div>
-        </div>
-        <div class="time-box">
-          <span id="seconds">00</span>
-          <div class="label">Seconds</div>
-        </div>
+        <div class="countdown">
+          <div class="time-box">
+            <span id="year">00</span>
+            <div class="label">Year</div>
+          </div>
+          <div class="time-box">
+            <span id="months">00</span>
+            <div class="label">Months</div>
+          </div>
+          <div class="time-box">
+            <span id="days">00</span>
+            <div class="label">Days</div>
+          </div>
+          <div class="time-box">
+            <span id="hours">00</span>
+            <div class="label">Hours</div>
+          </div>
+          <div class="time-box">
+            <span id="minutes">00</span>
+            <div class="label">Minutes</div>
+          </div>
+          <div class="time-box">
+            <span id="seconds">00</span>
+            <div class="label">Seconds</div>
+          </div>
         </div>
       </div>
+      <div class="hidden" id="messageContainer"></div>
+      <input
+        type="text"
+        id="customMessageInput"
+        class="hidden"
+        placeholder="Enter custom countdown end message"
+      />
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

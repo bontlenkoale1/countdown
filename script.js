@@ -6,9 +6,10 @@ const occasionDisplay = document.querySelector(".countdown-header-right h3");
 const storedOccasion = localStorage.getItem("occasion");
 const image = document.getElementById("balloons");
 const fileInput = document.createElement("input");
-const messageContainer = document.getElementById("countdown-ended-message");
-
-
+const messageContainer = document.getElementById("messageContainer");
+const customMessageInput = document.getElementById("customMessageInput");
+const countdownHeaderRight = document.querySelector(".countdown-header-right");
+const countdownContentContainer = document.querySelector(".countdown-content-container");
 document.addEventListener("DOMContentLoaded", function () {
   const homeBtn = document.getElementById("home-btn");
   const dropdown = document.querySelector(".dropdown");
@@ -84,3 +85,63 @@ document.addEventListener("DOMContentLoaded", function () {
     fileInput.click();
   });
 });
+
+
+function showCountdownEndMessage() {
+  const customMessageInput = document.getElementById("customMessageInput");
+  const countdownHeaderRight = document.querySelector(".countdown-header-right");
+  const countdownContentContainer = document.querySelector(".countdown-content-container");
+
+  if (countdownHeaderRight && countdownContentContainer) {
+    const message = customMessageInput?.value.trim() ;
+    
+     countdownHeaderRight.innerHTML = `
+      <h2>${message}</h2>
+    `;
+    countdownContentContainer.style.alignItems = "baseline";
+    countdownContentContainer.style.justifyContent = "left";
+    countdownContentContainer.style.marginLeft = "80px";
+    messageContainer.style.display = "block";
+    startConfetti();
+  }
+}
+    function startConfetti() {
+      const duration = 30 * 1000;
+      const animationEnd = Date.now() + duration;
+      const defaults = {
+        startVelocity: 30,
+        spread: 360,
+        ticks: 60,
+        zIndex: 0,
+        particleCount: 200,
+        origin: { y: 0.6 },
+      };
+      const interval = setInterval(function () {
+        const timeLeft = animationEnd - Date.now();
+        if (timeLeft <= 0) {
+          return clearInterval(interval);
+        }
+        const particleCount = 50 * (timeLeft / duration);
+        confetti({
+          ...defaults,
+          particleCount,
+          origin: { x: Math.random() * 0.8 + 0.1, y: Math.random() - 0.2 }
+        });
+      }, 250);
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+      const customMessageInput = document.getElementById("customMessageInput");
+      
+      if (customMessageInput) {
+        const storedMessage = localStorage.getItem("countdownMessage");
+        if (storedMessage) {
+          customMessageInput.value = storedMessage;
+        }
+    
+        customMessageInput.addEventListener("input", function () {
+          localStorage.setItem("countdownMessage", this.value);
+        });
+      }
+    });
+    window.showCountdownEndMessage = showCountdownEndMessage;
+    window.startConfetti = startConfetti;  
