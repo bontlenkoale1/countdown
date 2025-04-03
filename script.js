@@ -10,6 +10,9 @@ const messageContainer = document.getElementById("messageContainer");
 const customMessageInput = document.getElementById("customMessageInput");
 const countdownHeaderRight = document.querySelector(".countdown-header-right");
 const countdownContentContainer = document.querySelector(".countdown-content-container");
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
   const homeBtn = document.getElementById("home-btn");
   const dropdown = document.querySelector(".dropdown");
@@ -52,60 +55,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
   const image = document.getElementById("balloons");
+  
+  if (image) {
+    image.addEventListener("click", function () {
+      const fileInput = document.createElement("input");
+      fileInput.type = "file";
+      fileInput.accept = "image/*";
 
-  image.addEventListener("click", function () {
-    const fileInput = document.createElement("input");
-    fileInput.type = "file";
-    fileInput.accept = "image/*";
+      fileInput.addEventListener("change", function (e) {
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
 
-    fileInput.addEventListener("change", function (e) {
-      const file = e.target.files[0];
-      if (file) {
-        const reader = new FileReader();
+          reader.onload = function (event) {
+            const img = new Image();
+            img.onload = function () {
+              if (this.width > 500 || this.height > 500) {
+                alert(
+                  "Image is too large! Please select an image that is 300px or smaller in both width and height."
+                );
+                return;
+              }
 
-        reader.onload = function (event) {
-          const img = new Image();
-          img.onload = function () {
-            if (this.width > 500 || this.height > 500) {
-              alert(
-                "Image is too large! Please select an image that is 300px or smaller in both width and height."
-              );
-              return;
-            }
-
-            image.src = event.target.result;
+              image.src = event.target.result;
+            };
+            img.src = event.target.result;
           };
-          img.src = event.target.result;
-        };
 
-        reader.readAsDataURL(file);
-      }
+          reader.readAsDataURL(file);
+        }
+      });
+
+      fileInput.click();
     });
-
-    fileInput.click();
-  });
-});
-
-
-function showCountdownEndMessage() {
-  const customMessageInput = document.getElementById("customMessageInput");
-  const countdownHeaderRight = document.querySelector(".countdown-header-right");
-  const countdownContentContainer = document.querySelector(".countdown-content-container");
-
-  if (countdownHeaderRight && countdownContentContainer) {
-    const message = customMessageInput?.value.trim() ;
-    
-     countdownHeaderRight.innerHTML = `
-      <h2>${message}</h2>
-    `;
-    countdownContentContainer.style.alignItems = "baseline";
-    countdownContentContainer.style.justifyContent = "left";
-    countdownContentContainer.style.marginLeft = "80px";
-    messageContainer.style.display = "block";
-    startConfetti();
   }
-}
-    function startConfetti() {
+});
+/*function startConfetti() {
       const duration = 30 * 1000;
       const animationEnd = Date.now() + duration;
       const defaults = {
@@ -128,20 +113,4 @@ function showCountdownEndMessage() {
           origin: { x: Math.random() * 0.8 + 0.1, y: Math.random() - 0.2 }
         });
       }, 250);
-    }
-    document.addEventListener("DOMContentLoaded", function () {
-      const customMessageInput = document.getElementById("customMessageInput");
-      
-      if (customMessageInput) {
-        const storedMessage = localStorage.getItem("countdownMessage");
-        if (storedMessage) {
-          customMessageInput.value = storedMessage;
-        }
-    
-        customMessageInput.addEventListener("input", function () {
-          localStorage.setItem("countdownMessage", this.value);
-        });
-      }
-    });
-    window.showCountdownEndMessage = showCountdownEndMessage;
-    window.startConfetti = startConfetti;  
+    }*/
