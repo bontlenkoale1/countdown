@@ -246,7 +246,7 @@ ul {
 }
 .countdown-header-right-content h2 {
   color: #fff;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   margin-top: -90px;
   margin-left: -4px;
@@ -329,13 +329,7 @@ ul {
 #messageContainer {
   display: none;
 }
-.gradient-text {
-  background: linear-gradient(to right,#6a11cb, #2575fc); /* Orange/pink gradient (change colors as needed) */
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  font-weight: bold;
-}
+
 /*#countdown-ended-message {
   font-size: 2.5rem;
   font-weight: bold;

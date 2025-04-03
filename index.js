@@ -13,14 +13,16 @@ function showCountdownEndMessage() {
         messageContainer.textContent = message;
         messageContainer.classList.remove("hidden");
         messageContainer.style.textAlign = "left";
+        messageContainer.style.fontSize = "18px";
         messageContainer.style.alignItems = "baseline";
         messageContainer.style.justifyContent = "left";
+//messageContainer.style.marginLeft = "-280px";
       }
     
       if (contentContainer) {
         contentContainer.style.alignItems = "baseline";
         contentContainer.style.justifyContent = "left";
-        contentContainer.style.marginLeft = "-80px";
+        contentContainer.style.marginLeft = "-250px";
         contentContainer.style.marginTop = "150px";
       }
   
