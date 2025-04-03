@@ -53,6 +53,41 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+
+// function for reseting the occassion to default
+ function resetOccasion(endDate) {
+ const now = new Date().getTime();
+ const distance = endDate - now;
+ 
+  if (distance < 0) {
+    clearInterval(countdownInterval);
+    document.querySelector(".countdown").innerHTML = "countdown complete!";
+
+    localStorage.removeItem("occasion");
+    const occasionDisplay = document.querySelector(".countdown-header-right h3");
+ if (occasionDisplay) {
+  occasionDisplay.innerHTML = `Countdown To Your <span class="highlights">Occasion!</span>`;
+ }
+ return;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
   const image = document.getElementById("balloons");
   

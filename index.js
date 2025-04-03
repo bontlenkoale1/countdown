@@ -27,15 +27,35 @@ function showCountdownEndMessage() {
       }
   
      
-      if (typeof startConfetti === "function") startConfetti();
+      if (typeof startConfetti === "function")
+         startConfetti(() => {
+        resetCountdownMessage();
+         });
     }
-  }
+    }
+  function resetCountdownMessage() {
+    localStorage.removeItem("countdownMessage");
+
+
+    const header = document.querySelector(".countdown-header-right");
+    const messageContainer = document.getElementById("messageContainer");
+    const contentContainer = document.querySelector(".countdown-content-container");
+  
+    if (header) header.innerHTML = '<h3>Countdown To Your <span class="highlights">Special Day!</span></h3>';
+    if (messageContainer) {
+      messageContainer.textContent = "";
+      messageContainer.classList.add("hidden");
+        messageContainer.style = "";
+    }
+    if (contentContainer) {
+      contentContainer.style = "";
+    }
+}
   
  
-  document.addEventListener("DOMContentLoaded", showCountdownEndMessage);
+  
 
-
- function startConfetti() {
+ function startConfetti(onComplete) {
     const duration = 30 * 1000;
     const animationEnd = Date.now() + duration;
     const defaults = {
@@ -49,7 +69,9 @@ function showCountdownEndMessage() {
     const interval = setInterval(function () {
       const timeLeft = animationEnd - Date.now();
       if (timeLeft <= 0) {
-        return clearInterval(interval);
+        clearInterval(interval);
+        if (onComplete) onComplete();
+        return;
       }
       const particleCount = 50 * (timeLeft / duration);
       confetti({
@@ -59,3 +81,6 @@ function showCountdownEndMessage() {
       });
     }, 250);
   }
+
+
+  document.addEventListener("DOMContentLoaded", showCountdownEndMessage);
