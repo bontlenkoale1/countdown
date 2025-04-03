@@ -296,7 +296,9 @@
     text-align: center;
     animation: fadeIn 2s ease-in-out;
   }
-  
+  .hidden {
+    display: none;
+  }
   @keyframes fadeIn {
     from {
       opacity: 0;

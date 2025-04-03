@@ -10,6 +10,9 @@ const messageContainer = document.getElementById("messageContainer");
 const customMessageInput = document.getElementById("customMessageInput");
 const countdownHeaderRight = document.querySelector(".countdown-header-right");
 const countdownContentContainer = document.querySelector(".countdown-content-container");
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
   const homeBtn = document.getElementById("home-btn");
   const dropdown = document.querySelector(".dropdown");
@@ -50,98 +53,75 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const image = document.getElementById("balloons");
 
-  image.addEventListener("click", function () {
-    const fileInput = document.createElement("input");
-    fileInput.type = "file";
-    fileInput.accept = "image/*";
+// function for reseting the occassion to default
+ function resetOccasion(endDate) {
+ const now = new Date().getTime();
+ const distance = endDate - now;
+ 
+  if (distance < 0) {
+    clearInterval(countdownInterval);
+    document.querySelector(".countdown").innerHTML = "countdown complete!";
 
-    fileInput.addEventListener("change", function (e) {
-      const file = e.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-
-        reader.onload = function (event) {
-          const img = new Image();
-          img.onload = function () {
-            if (this.width > 500 || this.height > 500) {
-              alert(
-                "Image is too large! Please select an image that is 300px or smaller in both width and height."
-              );
-              return;
-            }
-
-            image.src = event.target.result;
-          };
-          img.src = event.target.result;
-        };
-
-        reader.readAsDataURL(file);
-      }
-    });
-
-    fileInput.click();
-  });
-});
-
-
-function showCountdownEndMessage() {
-  const customMessageInput = document.getElementById("customMessageInput");
-  const countdownHeaderRight = document.querySelector(".countdown-header-right");
-  const countdownContentContainer = document.querySelector(".countdown-content-container");
-
-  if (countdownHeaderRight && countdownContentContainer) {
-    const message = customMessageInput?.value.trim() ;
-    
-     countdownHeaderRight.innerHTML = `
-      <h2>${message}</h2>
-    `;
-    countdownContentContainer.style.alignItems = "baseline";
-    countdownContentContainer.style.justifyContent = "left";
-    countdownContentContainer.style.marginLeft = "80px";
-    messageContainer.style.display = "block";
-    startConfetti();
+    localStorage.removeItem("occasion");
+    const occasionDisplay = document.querySelector(".countdown-header-right h3");
+ if (occasionDisplay) {
+  occasionDisplay.innerHTML = `Countdown To Your <span class="highlights">Occasion!</span>`;
+ }
+ return;
   }
 }
-    function startConfetti() {
-      const duration = 30 * 1000;
-      const animationEnd = Date.now() + duration;
-      const defaults = {
-        startVelocity: 30,
-        spread: 360,
-        ticks: 60,
-        zIndex: 0,
-        particleCount: 200,
-        origin: { y: 0.6 },
-      };
-      const interval = setInterval(function () {
-        const timeLeft = animationEnd - Date.now();
-        if (timeLeft <= 0) {
-          return clearInterval(interval);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const image = document.getElementById("balloons");
+  
+  if (image) {
+    image.addEventListener("click", function () {
+      const fileInput = document.createElement("input");
+      fileInput.type = "file";
+      fileInput.accept = "image/*";
+
+      fileInput.addEventListener("change", function (e) {
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+
+          reader.onload = function (event) {
+            const img = new Image();
+            img.onload = function () {
+              if (this.width > 500 || this.height > 500) {
+                alert(
+                  "Image is too large! Please select an image that is 300px or smaller in both width and height."
+                );
+                return;
+              }
+
+              image.src = event.target.result;
+            };
+            img.src = event.target.result;
+          };
+
+          reader.readAsDataURL(file);
         }
-        const particleCount = 50 * (timeLeft / duration);
-        confetti({
-          ...defaults,
-          particleCount,
-          origin: { x: Math.random() * 0.8 + 0.1, y: Math.random() - 0.2 }
-        });
-      }, 250);
-    }
-    document.addEventListener("DOMContentLoaded", function () {
-      const customMessageInput = document.getElementById("customMessageInput");
-      
-      if (customMessageInput) {
-        const storedMessage = localStorage.getItem("countdownMessage");
-        if (storedMessage) {
-          customMessageInput.value = storedMessage;
-        }
-    
-        customMessageInput.addEventListener("input", function () {
-          localStorage.setItem("countdownMessage", this.value);
-        });
-      }
+      });
+
+      fileInput.click();
     });
-    window.showCountdownEndMessage = showCountdownEndMessage;
-    window.startConfetti = startConfetti;  
+  }
+});

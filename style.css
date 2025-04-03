@@ -246,7 +246,7 @@ ul {
 }
 .countdown-header-right-content h2 {
   color: #fff;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   margin-top: -90px;
   margin-left: -4px;
@@ -324,6 +324,9 @@ ul {
  /* object-fit: cover; /* Ensures it fits within container */
 }
 .hidden {
+  display: none;
+}
+#messageContainer {
   display: none;
 }
 
