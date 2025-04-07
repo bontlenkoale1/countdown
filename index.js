@@ -9,7 +9,7 @@ function showCountdownEndMessage() {
 
     if (wordCount === 4) {
       alert("The message is long (4 words).3 words or less are allowed.");
-      return; // Exit the function to stop further processing
+      return; 
     }
 
     if (header) header.innerHTML = `<h2>${message}</h2>`;
