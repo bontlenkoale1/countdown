@@ -5,10 +5,15 @@ function showCountdownEndMessage() {
   const contentContainer = document.querySelector(".countdown-content-container");
 
   if (message) {
-   
+    const wordCount = message.trim().split(/\s+/).length;
+
+    if (wordCount === 4) {
+      alert("The message is long (4 words).3 words or less are allowed.");
+      return; // Exit the function to stop further processing
+    }
+
     if (header) header.innerHTML = `<h2>${message}</h2>`;
 
-   
     if (messageContainer) {
       messageContainer.textContent = message;
       messageContainer.classList.remove("hidden");
@@ -17,7 +22,7 @@ function showCountdownEndMessage() {
       messageContainer.style.alignItems = "baseline";
       messageContainer.style.justifyContent = "left";
     }
-  
+
     if (contentContainer) {
       contentContainer.style.alignItems = "baseline";
       contentContainer.style.justifyContent = "left";
@@ -25,34 +30,48 @@ function showCountdownEndMessage() {
       contentContainer.style.marginTop = "150px";
     }
 
-   
-    if (typeof startConfetti === "function")
-       startConfetti(() => {
-      resetCountdownMessage();
-       });
-  }
-  }
-function resetCountdownMessage() {
-  localStorage.removeItem("countdownMessage");
-
-
-  const header = document.querySelector(".countdown-header-right");
-  const messageContainer = document.getElementById("messageContainer");
-  const contentContainer = document.querySelector(".countdown-content-container");
-
-  if (header) header.innerHTML = '<h3>Countdown To Your <span class="highlights">Special Day!</span></h3>';
-  if (messageContainer) {
-    messageContainer.textContent = "";
-    messageContainer.classList.add("hidden");
-      messageContainer.style = "";
-  }
-  if (contentContainer) {
-    contentContainer.style = "";
+    if (typeof startConfetti === "function") {
+      startConfetti(() => {
+        resetCountdownMessage();
+      });
+    }
   }
 }
 
 
 
+
+
+
+function resetCountdownMessage() {
+    localStorage.removeItem("countdownMessage");
+  
+    const headerContainer = document.querySelector(".countdown-header-right");
+    const messageContainer = document.getElementById("messageContainer");
+    const contentContainer = document.querySelector(".countdown-content-container");
+  
+    if (headerContainer) {
+      headerContainer.innerHTML = `
+        <h2>
+          Count<span class="hightlight">down</span>
+          <img src="images/hourglass (1).png" alt="" id="hour-glass-icon" />
+        </h2>
+        <h3>
+          Countdown to your <span class="highlights">special day</span>
+        </h3>
+      `;
+    }
+  
+    if (messageContainer) {
+      messageContainer.textContent = "";
+      messageContainer.classList.add("hidden");
+      messageContainer.style = "";
+    }
+    
+    if (contentContainer) {
+      contentContainer.style = "";
+    }
+  }
 
 function startConfetti(onComplete) {
   const duration = 30 * 1000;
