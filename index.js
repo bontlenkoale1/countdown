@@ -26,7 +26,7 @@ function showCountdownEndMessage() {
     if (contentContainer) {
       contentContainer.style.alignItems = "baseline";
       contentContainer.style.justifyContent = "left";
-      contentContainer.style.marginLeft = "-60px";
+      contentContainer.style.marginLeft = "-280px";
       contentContainer.style.marginTop = "150px";
     }
 

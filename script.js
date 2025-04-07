@@ -50,21 +50,21 @@ document.addEventListener("DOMContentLoaded", function () {
     if (storedOccasion) {
       occasionDisplay.innerHTML = `Countdown To Your <span class="highlights">${storedOccasion}!</span>`;
     } else {
-      // Reset to default if no occasion stored
+      
       occasionDisplay.innerHTML = `Countdown to your <span class="highlights">special day</span>`;
     }
   }
 });  
 
 
- function resetOccasion(endDate) {
+ /*function resetOccasion(endDate) {
  const now = new Date().getTime();
  const distance = endDate - now;
- //const endDate = new Date().getTime() - 1000; // Already in the past
+ /*const endDate = new Date().getTime() - 1000; // Already in the past
  /*resetOccasion(endDate);*/
  
 
-  if (distance < 0) {
+ /* if (distance < 0) {
     clearInterval(countdownInterval);
     document.querySelector(".countdown").innerHTML = "countdown complete!";
 
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }    
  return;
   }
-}
+}*/
 
 document.addEventListener("DOMContentLoaded", function () {
   const image = document.getElementById("balloons");
