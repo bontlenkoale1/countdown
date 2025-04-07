@@ -30,62 +30,25 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-
 document.addEventListener("DOMContentLoaded", function () {
+  console.log("DOM fully loaded");
+  
+
   const form = document.getElementById("countdown-form");
   if (form) {
     form.addEventListener("submit", function (event) {
       event.preventDefault();
+      console.log("Form submitted");
 
       const occasionInput = document.getElementById("event-name").value;
       if (occasionInput.trim() !== "") {
+        console.log("Storing occasion:", occasionInput); 
         localStorage.setItem("occasion", occasionInput);
         window.location.href = "index.html";
       }
     });
   }
-  const occasionDisplay = document.querySelector(".countdown-header-right h3");
-  if (occasionDisplay) {
-    const storedOccasion = localStorage.getItem("occasion");
-    if (storedOccasion) {
-      occasionDisplay.innerHTML = `Countdown To Your <span class="highlights">${storedOccasion}!</span>`;
-    }
-  }
-});
-
-
-// function for reseting the occassion to default
- function resetOccasion(endDate) {
- const now = new Date().getTime();
- const distance = endDate - now;
- 
-  if (distance < 0) {
-    clearInterval(countdownInterval);
-    document.querySelector(".countdown").innerHTML = "countdown complete!";
-
-    localStorage.removeItem("occasion");
-    const occasionDisplay = document.querySelector(".countdown-header-right h3");
- if (occasionDisplay) {
-  occasionDisplay.innerHTML = `Countdown To Your <span class="highlights">Occasion!</span>`;
- }
- return;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+})
 
 
 document.addEventListener("DOMContentLoaded", function () {
