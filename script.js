@@ -1,17 +1,7 @@
+// dropdown menu
+
 const homeBtn = document.getElementById("home-btn");
 const dropdown = document.querySelector(".dropdown");
-const form = document.getElementById("countdown-form");
-const occasionInput = document.getElementById("event-name");
-const occasionDisplay = document.querySelector(".countdown-header-right h3");
-const storedOccasion = localStorage.getItem("occasion");
-const image = document.getElementById("balloons");
-const fileInput = document.createElement("input");
-const messageContainer = document.getElementById("messageContainer");
-const customMessageInput = document.getElementById("customMessageInput");
-const countdownHeaderRight = document.querySelector(".countdown-header-right");
-const countdownContentContainer = document.querySelector(".countdown-content-container");
-
-
 
 document.addEventListener("DOMContentLoaded", function () {
   const homeBtn = document.getElementById("home-btn");
@@ -31,55 +21,18 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("countdown-form");
-  if (form) {
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
 
-      const occasionInput = document.getElementById("event-name").value;
-      if (occasionInput.trim() !== "") {
-        localStorage.setItem("occasion", occasionInput);
-        window.location.href = "index.html";
-      }
-    });
-  }
-  const occasionDisplay = document.querySelector(".countdown-header-right h3");
-  if (occasionDisplay) {
-    const storedOccasion = localStorage.getItem("occasion");
-    if (storedOccasion) {
-      occasionDisplay.innerHTML = `Countdown To Your <span class="highlights">${storedOccasion}!</span>`;
-    } else {
-      
-      occasionDisplay.innerHTML = `Countdown to your <span class="highlights">special day</span>`;
-    }
-  }
-});  
+// image carousel
 
-
- /*function resetOccasion(endDate) {
- const now = new Date().getTime();
- const distance = endDate - now;
- /*const endDate = new Date().getTime() - 1000; // Already in the past
- /*resetOccasion(endDate);*/
- 
-
- /* if (distance < 0) {
-    clearInterval(countdownInterval);
-    document.querySelector(".countdown").innerHTML = "countdown complete!";
-
-    localStorage.removeItem("occasion");
-    const occasionDisplay = document.querySelector(".countdown-header-right h3");
-    if (occasionDisplay) {
-      occasionDisplay.innerHTML = `Countdown to your <span class="highlights">special day</span>`;
-    }    
- return;
-  }
-}*/
-
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function (e) {
   const image = document.getElementById("balloons");
   
+  
+  const savedImage = localStorage.getItem('customBalloonImage');
+  if (savedImage) {
+    image.src = savedImage;
+  }
+
   if (image) {
     image.addEventListener("click", function () {
       const fileInput = document.createElement("input");
@@ -96,11 +49,13 @@ document.addEventListener("DOMContentLoaded", function () {
             img.onload = function () {
               if (this.width > 500 || this.height > 500) {
                 alert(
-                  "Image is too large! Please select an image that is 300px or smaller in both width and height."
+                  "Image is too large! Please select an image that is 500px or smaller in both width and height."
                 );
                 return;
               }
 
+             
+              localStorage.setItem('customBalloonImage', event.target.result);
               image.src = event.target.result;
             };
             img.src = event.target.result;
@@ -114,3 +69,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+
+function resetBalloonImage() {
+  localStorage.removeItem('customBalloonImage');
+  document.getElementById("balloons").src = "default-image-path.jpg"; 
+}
+
+
+
+
+
