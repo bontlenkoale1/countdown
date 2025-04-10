@@ -28,7 +28,8 @@
       href="https://fonts.googleapis.com/css2?family=Pacifico&family=Pixelify+Sans:wght@400..700&family=Playwrite+IT+Moderna:wght@100..400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+   <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
@@ -46,7 +47,8 @@
               ><img src="images/download.png" alt="" id="home" />Home</a
             >
             <ul class="dropdown">
-              <li><a href="theme.html">• Change Theme</a></li>
+              <i class="fas fa-toggle-off" id="toggleSwitch" style="cursor: pointer;"></i>
+              <span style="margin-left: 8px;">Dark Mode</span>
               <li><a href="createCountdown.html">• Create Countdown</a></li>
             </ul>
           </li>
@@ -111,6 +113,7 @@
         placeholder="Enter custom countdown end message"
       />
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="script.js"></script>
     <script src="index.js"></script>

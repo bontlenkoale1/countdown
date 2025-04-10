@@ -1,0 +1,223 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    display: flex;
+    font-family: "Montserrat", serif;
+    justify-content: flex-start;
+  }
+  .container {
+    display: flex;
+    justify-content: flex-start;
+    min-height: 100vh;
+    width: 100%;
+    background: #9880a1;
+  }
+  .container.dark-mode {
+    background-color: #000 !important;
+  }
+  
+  .container.dark-mode .sidebar {
+    background: #111;
+  }
+  
+  .container.dark-mode .countdown-header-right h2,
+  .container.dark-mode .countdown-header-right h3,
+  .container.dark-mode .label,
+  .container.dark-mode .time-box span {
+    color: #ffffff !important;
+  }
+  
+  .container.dark-mode .time-box {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  }
+  .sidebar {
+    display: flex;
+    justify-content: flex-start;
+    width: 350px;
+    background: linear-gradient(135deg, #6058a5, #9880a1, #63639b);
+    color: #fff;
+    height: 100vh;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(99, 7, 107, 0.815);
+    box-sizing: border-box;
+  }
+  
+  .sidebar-content {
+    display: block;
+    list-style-type: none;
+    padding: 10px;
+  }
+  
+  .sidebar-content li {
+    margin: 10px 0;
+    position: relative;
+    margin-bottom: -10px;
+    display: inline;
+    padding: 10px 10px;
+    top: 10px;
+  }
+  .sidebar-content li a {
+    display: block;
+    color: #fcfcfc;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-weight: 400;
+    font-family:  "Montserrat", serif;
+    font-size: 16px;
+    }
+  
+  .sidebar-content li a:hover {
+    background-color: #7979ad;
+  }
+  .sidebar-content a {
+    margin-bottom: 12px;
+  }
+  
+  .dropdown ul li {
+    font-size: 16px;
+  }
+  .sidebar-content li img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+  #home {
+    vertical-align: middle;
+    margin-right: -2px;
+  }
+  .dropdown {
+    background: transparent;
+    color: #fcfcfc;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-weight: 400;
+    font-family: "Playwrite IT Moderna", serif;
+    font-size: 20px;
+    display: block;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+    margin-left: 10px;
+  }
+  .dropdown li:nth-child(1) {
+    left: 0;
+  }
+  
+  .dropdown li:nth-child(2) {
+    left: -1px;
+  }
+  .dropdown li:nth-child(3) {
+    left: -1px;
+  }
+  .dropdown {
+    display: none;
+  }
+  .sidebar-content li.active .dropdown {
+    display: block;
+  }
+  .countdown-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height:100vh;*/
+    /* width:100%;*/
+  }
+  .countdown-container {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  /*.countdown-header {
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 80px;
+    
+  }*/
+  .countdown-header-left {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-left: -30px;
+  }
+  #hourglass-icon {
+    width: 20px;
+    height: auto;
+    vertical-align: middle;
+    margin-left: 8px;
+  }
+  #hour-glass-icon {
+    display: inline-block;
+    width: 20px;
+    height: auto;
+    vertical-align: middle;
+    margin-left: 8px;
+    animation: rotateClockwise 2s linear infinite;
+  }
+  @keyframes rotateClockwise {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  /*.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+  }*/
+  
+  .occasion-container {
+    display: grid;
+/*justify-content: center;
+    align-items: center;*/
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-left: 90px;
+   /* margin-bottom: -80px;*/
+
+  }
+  
+  .card-wrapper {
+    background: linear-gradient(125deg, #03bff8, #dcb7e9, #bcbcfa);
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 10px 5px;
+    /*margin-bottom: 50px;
+    /*top: 10px;*/
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card-wrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card-wrapper h1 {
+    font-size: 18px;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-family: "Montserrat", serif;
+  }
+  
+  .card-wrapper p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0.5rem 0;
+  }
+  
+  .card-wrapper p strong {
+    color: #ffffff;
+  }
+  
