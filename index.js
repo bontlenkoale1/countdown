@@ -93,3 +93,25 @@ function startConfetti(onComplete) {
   }, 250);
 }
 
+// dark mode 
+
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleSwitch = document.getElementById("toggleSwitch");
+  const container = document.querySelector(".container");
+
+  // Set mode based on localStorage
+  if (localStorage.getItem("darkMode") === "true") {
+    container.classList.add("dark-mode");
+    toggleSwitch.classList.replace("fa-toggle-off", "fa-toggle-on");
+  }
+
+  toggleSwitch.addEventListener("click", () => {
+    container.classList.toggle("dark-mode");
+
+    const isDark = container.classList.contains("dark-mode");
+    toggleSwitch.classList.toggle("fa-toggle-on", isDark);
+    toggleSwitch.classList.toggle("fa-toggle-off", !isDark);
+
+    localStorage.setItem("darkMode", isDark);
+  });
+});
