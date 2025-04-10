@@ -1,78 +1,70 @@
-function showCountdownEndMessage() {
-  const message = localStorage.getItem("countdownMessage");
-  const header = document.querySelector(".countdown-header-right");
-  const messageContainer = document.getElementById("messageContainer");
-  const contentContainer = document.querySelector(".countdown-content-container");
+function startCountdown(targetDate, customMessage) {
+  const countdownInterval = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = new Date(targetDate).getTime() - now;
 
-  if (message) {
-    const wordCount = message.trim().split(/\s+/).length;
+    if (distance <= 0) {
+      clearInterval(countdownInterval);
+      startConfetti();
+      document.getElementById("messageContainer").classList.remove("hidden");
+      document.getElementById("messageContainer").textContent = customMessage || "🎉 Time's up!";
+      
+      
+      localStorage.removeItem("occasion");
 
-    if (wordCount === 4) {
-      alert("The message is long (4 words).3 words or less are allowed.");
-      return; 
+      const occasionDisplay = document.querySelector(".countdown-header-right h3");
+      if (occasionDisplay) {
+        occasionDisplay.innerHTML = `Countdown to your <span class="highlights">special day</span>`;
+      }    
+      return;
     }
 
-    if (header) header.innerHTML = `<h2>${message}</h2>`;
+    const years = Math.floor(distance / (1000 * 60 * 60 * 24 * 365));
+    const months = Math.floor((distance % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+    const days = Math.floor((distance % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    if (messageContainer) {
-      messageContainer.textContent = message;
-      messageContainer.classList.remove("hidden");
-      messageContainer.style.textAlign = "left";
-      messageContainer.style.fontSize = "18px";
-      messageContainer.style.alignItems = "baseline";
-      messageContainer.style.justifyContent = "left";
-    }
-
-    if (contentContainer) {
-      contentContainer.style.alignItems = "baseline";
-      contentContainer.style.justifyContent = "left";
-      contentContainer.style.marginLeft = "-280px";
-      contentContainer.style.marginTop = "150px";
-    }
-
-    if (typeof startConfetti === "function") {
-      startConfetti(() => {
-        resetCountdownMessage();
-      });
-    }
-  }
+    document.getElementById("year").textContent = String(years).padStart(2, "0");
+    document.getElementById("months").textContent = String(months).padStart(2, "0");
+    document.getElementById("days").textContent = String(days).padStart(2, "0");
+    document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+    document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+    document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+  }, 1000);
+  
 }
 
+window.addEventListener("DOMContentLoaded", () => {
+  const countdownData = JSON.parse(localStorage.getItem("activeCountdown"));
+
+  if (countdownData && countdownData.eventDate) {
+    startCountdown(countdownData.eventDate, countdownData.customMessage);
+  }
+});
 
 
-
-
-
-function resetCountdownMessage() {
-    localStorage.removeItem("countdownMessage");
+document.addEventListener("DOMContentLoaded", function () {
+  const occasionDisplay = document.querySelector(".countdown-header-right h3");
   
-    const headerContainer = document.querySelector(".countdown-header-right");
-    const messageContainer = document.getElementById("messageContainer");
-    const contentContainer = document.querySelector(".countdown-content-container");
+  if (occasionDisplay) {
   
-    if (headerContainer) {
-      headerContainer.innerHTML = `
-        <h2>
-          Count<span class="hightlight">down</span>
-          <img src="images/hourglass (1).png" alt="" id="hour-glass-icon" />
-        </h2>
-        <h3>
-          Countdown to your <span class="highlights">special day</span>
-        </h3>
-      `;
-    }
-  
-    if (messageContainer) {
-      messageContainer.textContent = "";
-      messageContainer.classList.add("hidden");
-      messageContainer.style = "";
-    }
-    
-    if (contentContainer) {
-      contentContainer.style = "";
+    const storedOccasion = localStorage.getItem("occasion");
+
+    if (storedOccasion) {
+     
+      occasionDisplay.innerHTML = `Countdown To Your <span class="highlights">${storedOccasion}!</span>`;
+    } else {
+      
+      occasionDisplay.innerHTML = `Countdown to your <span class="highlights">special day</span>`;
     }
   }
+  
+});
 
+
+// Confetti animation
 function startConfetti(onComplete) {
   const duration = 30 * 1000;
   const animationEnd = Date.now() + duration;
@@ -84,7 +76,8 @@ function startConfetti(onComplete) {
     particleCount: 200,
     origin: { y: 0.6 },
   };
-  const interval = setInterval(function () {
+  
+  const interval = setInterval(function() {
     const timeLeft = animationEnd - Date.now();
     if (timeLeft <= 0) {
       clearInterval(interval);
@@ -95,10 +88,8 @@ function startConfetti(onComplete) {
     confetti({
       ...defaults,
       particleCount,
-      origin: { x: Math.random() * 0.8 + 0.1, y: Math.random() - 0.2 }
+      origin: { x: Math.random() * 0.8 + 0.1, y: Math.random() - 0.2 },
     });
   }, 250);
 }
 
-
-document.addEventListener("DOMContentLoaded", showCountdownEndMessage);
