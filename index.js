@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const toggleSwitch = document.getElementById("toggleSwitch");
   const container = document.querySelector(".container");
 
-  // Set mode based on localStorage
+  
   if (localStorage.getItem("darkMode") === "true") {
     container.classList.add("dark-mode");
     toggleSwitch.classList.replace("fa-toggle-off", "fa-toggle-on");
