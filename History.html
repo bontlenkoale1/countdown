@@ -4,87 +4,94 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-    href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Playwrite+IT+Moderna:wght@100..400&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Pacifico&family=Pixelify+Sans:wght@400..700&family=Playwrite+IT+Moderna:wght@100..400&display=swap"
-    rel="stylesheet"
-  />
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Playwrite+IT+Moderna:wght@100..400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Pixelify+Sans:wght@400..700&family=Playwrite+IT+Moderna:wght@100..400&display=swap"
+      rel="stylesheet"
+    />
     <title>Countdown⌛</title>
     <link rel="stylesheet" href="historyStyle.css" />
   </head>
   <body>
     <div class="container">
-        <div class="sidebar">
-            <ul class="sidebar-content">
-              <h1>
-                Countdown<img
-                  src="images/hourglass.png"
-                  alt=""
-                  id="hourglass-icon"
-                />
-              </h1>
-              <li>
-                <a href="index.html" id="home-btn"
-                  ><img src="images/download.png" alt="" id="home" />Home</a
-                >
-                <ul class="dropdown">
-                  <i
-                    class="fas fa-toggle-off"
-                    id="toggleSwitch"
-                    style="cursor: pointer"
-                  ></i>
-                  <span style="margin-left: 8px">Dark Mode</span>
-                  <li><a href="createCountdown.html">• Create Countdown</a></li>
-                </ul>
-              </li>
-              <li><a href="History.html">Check History</a></li>
+      <div class="sidebar">
+        <ul class="sidebar-content">
+          <h1>
+            Countdown<img
+              src="images/hourglass.png"
+              alt=""
+              id="hourglass-icon"
+            />
+          </h1>
+          <li>
+            <a href="index.html" id="home-btn"
+              ><img src="images/download.png" alt="" id="home" />Home</a
+            >
+            <ul class="dropdown">
+              <i
+                class="fas fa-toggle-off"
+                id="toggleSwitch"
+                style="cursor: pointer"
+              ></i>
+              <span style="margin-left: 8px">Dark Mode</span>
+              <li><a href="createCountdown.html">• Create Countdown</a></li>
             </ul>
-          </div>
+          </li>
+          <li><a href="History.html">Check History</a></li>
+        </ul>
+      </div>
       <div class="occasion-container">
-        <div class="card-wrapper">
-          <h1>Special Events I've celebrated🎉 </h1>
-          <p><strong>Event: </strong> Birthday Bash</p>
-          <p><strong>Date: </strong> 10 April 2024</p>
-          <p><strong>Time: </strong> 06:00 PM</p>
-        </div>
-        <div class="card-wrapper">
-          <h1>Special Events I've celebrated🎉</h1>
-          <p><strong>Event: </strong> Birthday Bash</p>
-          <p><strong>Date: </strong> 10 April 2024</p>
-          <p><strong>Time: </strong> 06:00 PM</p>
-        </div>
-        <div class="card-wrapper">
-          <h1>Special Events I've celebrated🎉</h1>
-          <p><strong>Event: </strong> Birthday Bash</p>
-          <p><strong>Date: </strong> 10 April 2024</p>
-          <p><strong>Time: </strong> 06:00 PM</p>
-        </div>
-        <div class="card-wrapper">
-            <h1>Special Events I've celebrated🎉</h1>
-            <p><strong>Event: </strong> Birthday Bash</p>
-            <p><strong>Date: </strong> 10 April 2024</p>
-            <p><strong>Time: </strong> 06:00 PM</p>
-          </div>
-          <div class="card-wrapper">
-            <h1>Special Events I've celebrated🎉</h1>
-            <p><strong>Event: </strong> Birthday Bash</p>
-            <p><strong>Date: </strong> 10 April 2024</p>
-            <p><strong>Time: </strong> 06:00 PM</p>
-          </div>
-          <div class="card-wrapper">
-            <h1>Special Events I've celebrated🎉</h1>
-            <p><strong>Event: </strong> Birthday Bash</p>
-            <p><strong>Date: </strong> 10 April 2024</p>
-            <p><strong>Time: </strong> 06:00 PM</p>
-          </div>
+      </div>
+      <div class="clear-history-container">
+      <button id="clearHistoryBtn">Clear History</button>
       </div>
     </div>
-   
-   <script src="index.js"></script>
-  
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const container = document.querySelector(".occasion-container");
+        const history =
+          JSON.parse(localStorage.getItem("countdownHistory")) || [];
+
+        if (history.length === 0) {
+          container.innerHTML =
+            "<p style='padding: 1rem; color: #fff;'>No countdown history yet 🥲</p>";
+          return;
+        }
+
+        history.reverse().forEach((item) => {
+          const card = document.createElement("div");
+          card.className = "card-wrapper";
+          card.innerHTML = `
+            <h1>Special Event 🎉</h1>
+            <p><strong>Event:</strong> ${item.eventName}</p>
+            <p><strong>Date:</strong> ${new Date(
+              item.eventDate
+            ).toLocaleDateString()}</p>
+            <p><strong>Time:</strong> ${new Date(
+              item.eventDate
+            ).toLocaleTimeString()}</p>
+            <p><strong>Message:</strong> ${item.customMessage || "None"}</p>
+          `;
+          container.appendChild(card);
+        });
+      });
+      document
+        .getElementById("clearHistoryBtn")
+        .addEventListener("click", () => {
+          if (
+            confirm("Are you sure you want to delete all countdown history?")
+          ) {
+            localStorage.removeItem("countdownHistory");
+            location.reload();
+          }
+        });
+    </script>
+
+    <script src="index.js"></script>
+    <script src="createCountdown.js"></script>
   </body>
 </html>

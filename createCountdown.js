@@ -14,9 +14,23 @@ document.getElementById("countdown-form").addEventListener("submit", function (e
     eventName,
     eventDate,
     customMessage,
+    createdAt: new Date().toISOString(),
+    countdownId: Date.now(),
   };
 
   localStorage.setItem("activeCountdown", JSON.stringify(countdownData));
+  
+
+  const history = JSON.parse(localStorage.getItem("countdownHistory")) || [];
+  history.push(countdownData);
+  localStorage.setItem("countdownHistory", JSON.stringify(history));
+
+  localStorage.setItem("occasion", eventName);   
+  localStorage.setItem("countdownMessage", customMessage); 
+
+
+
+
   window.location.href = "index.html";
 });
 
