@@ -65,8 +65,15 @@ A feature-rich countdown timer web application with dark mode, custom image uplo
 
 ![History Page]
 
+
 *Past countdowns archive with event details and clear history button*
+
+
+
+
 [Screenshot 2025-04-16 172451](https://github.com/user-attachments/assets/596df892-2ffa-4b99-a6c3-274b4fcfb9a0)
+
+
 
 
 
