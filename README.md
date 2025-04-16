@@ -42,29 +42,38 @@ A feature-rich countdown timer web application with dark mode, custom image uplo
  
 
 ## UI Screenshots 🖥️
-(![Screenshot 2025-04-16 172628](https://github.com/user-attachments/assets/16c52d45-85e2-4ae5-b980-b88de3145d0a)
+![Screenshot 2025-04-16 172628](https://github.com/user-attachments/assets/16c52d45-85e2-4ae5-b980-b88de3145d0a)
 
 
-![Main Interface](![Screenshot 2025-04-16 172436](https://github.com/user-attachments/assets/14993609-c547-4757-8ce4-278705b59832)
+![Screenshot 2025-04-16 172436](https://github.com/user-attachments/assets/14993609-c547-4757-8ce4-278705b59832)
 
 *Homepage showing active countdown with default theme*
-[!Main Interface](![Screenshot 2025-04-16 172421](https://github.com/user-attachments/assets/4decc47c-fd7f-4bc0-9b5b-8182f52cc82a)
-)
+
+
+### Dark Mode Interface
+![Dark Mode]
+*Dark theme version with glowing time boxes*
+
+![Screenshot 2025-04-16 172421](https://github.com/user-attachments/assets/4decc47c-fd7f-4bc0-9b5b-8182f52cc82a)
+
+
+![Screenshot 2025-04-16 172545](https://github.com/user-attachments/assets/330c2b12-f3f9-49ab-bb87-697d5306278c)
+
+
+### History Section
+
+
+![History Page]
+
+*Past countdowns archive with event details and clear history button*
+[Screenshot 2025-04-16 172451](https://github.com/user-attachments/assets/596df892-2ffa-4b99-a6c3-274b4fcfb9a0)
 
 
 
 
+[Screenshot 2025-04-16 172531](https://github.com/user-attachments/assets/f956e864-5148-49bb-9461-57aa01f7d358)
 
-![Main Interface](![Screenshot 2025-04-16 172545](https://github.com/user-attachments/assets/330c2b12-f3f9-49ab-bb87-697d5306278c)
-)
-![Main Interface](![Screenshot 2025-04-16 172531](https://github.com/user-attachments/assets/f956e864-5148-49bb-9461-57aa01f7d358)
-)
-![Main Interface](![Screenshot 2025-04-16 172519](https://github.com/user-attachments/assets/ad9d061a-70f5-4c47-82c7-aa8e8429ae8f)
-)
-![Main Interface](![Screenshot 2025-04-16 172508](https://github.com/user-attachments/assets/d064f472-3e7e-4cc3-8e77-0c8dc31a60c7)
-)
-![Main Interface](![Screenshot 2025-04-16 172451](https://github.com/user-attachments/assets/596df892-2ffa-4b99-a6c3-274b4fcfb9a0)
-)
+
 
 
 
