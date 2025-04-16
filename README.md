@@ -42,9 +42,15 @@ A feature-rich countdown timer web application with dark mode, custom image uplo
  
 
 ## UI Screenshots 🖥️
-![Main Interface](![Screenshot 2025-04-16 172628](https://github.com/user-attachments/assets/16c52d45-85e2-4ae5-b980-b88de3145d0a)
+(![Screenshot 2025-04-16 172628](https://github.com/user-attachments/assets/16c52d45-85e2-4ae5-b980-b88de3145d0a)
+
+
 ![Main Interface](![Screenshot 2025-04-16 172436](https://github.com/user-attachments/assets/14993609-c547-4757-8ce4-278705b59832)
+
 *Homepage showing active countdown with default theme*
+[!Main Interface](![Screenshot 2025-04-16 172421](https://github.com/user-attachments/assets/4decc47c-fd7f-4bc0-9b5b-8182f52cc82a)
+)
+
 
 
 
@@ -61,8 +67,6 @@ A feature-rich countdown timer web application with dark mode, custom image uplo
 )
 
 
-[!Main Interface](![Screenshot 2025-04-16 172421](https://github.com/user-attachments/assets/4decc47c-fd7f-4bc0-9b5b-8182f52cc82a)
-)
 
 
 
