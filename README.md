@@ -70,7 +70,7 @@ A feature-rich countdown timer web application with dark mode, custom image uplo
 
 
 
-(/screenshots/history.png)
+
 *Past countdowns archive with event details and clear history button*
 
 
